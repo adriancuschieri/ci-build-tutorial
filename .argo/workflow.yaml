@@ -80,16 +80,20 @@ spec:
     # -------------------------------------------------------
     - name: run-tests
       container:
-        image: golang:1.22-alpine
+        image: golang:1.26-alpine
         command: [sh, -c]
         args:
           - |
+            # Install required C toolchain for -race
+            apk add --no-cache gcc musl-dev
             cd /workspace/src && \
             go test ./... -v -race -count=1
         volumeMounts:
           - name: workspace
             mountPath: /workspace
         env:
+          - name: CGO_ENABLED
+            value: "1"
           - name: GOPATH
             value: /go
           - name: GOCACHE
