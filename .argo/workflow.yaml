@@ -88,6 +88,7 @@ spec:
             apk add --no-cache gcc musl-dev
             cd /workspace/src && \
             go test ./... -v -race -count=1
+        workingDir: /workspace/src
         volumeMounts:
           - name: workspace
             mountPath: /workspace
