@@ -3,6 +3,7 @@ kind: Workflow
 metadata:
   generateName: ci-pipeline-
 spec:
+  serviceAccountName: github-argo-webhook
   # These parameters are automatically injected by the webhook service at runtime.
   # You can reference them anywhere with {{workflow.parameters.<name>}}
   arguments:
