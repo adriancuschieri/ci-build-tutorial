@@ -44,7 +44,7 @@ pipeline:
         tag: "{{commit}}"
         dockerfile: Dockerfile
         registry_secret: docker-registry-credentials   # K8s Secret name
-      dependsOn: [build]
+      dependsOn: [test]
 
     # ---------------------------------------------------------------
     # Step 3B — Alternative: env-var based credentials.
