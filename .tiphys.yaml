@@ -17,7 +17,7 @@ pipeline:
   # Global env vars injected into every step.
   env:
     - name: CGO_ENABLED
-      value: "0"
+      value: "1"
     - name: GOFLAGS
       value: "-mod=readonly"
 
@@ -31,17 +31,6 @@ pipeline:
         packages: "./..."
         race: "true"
         count: "1"
-
-    # ---------------------------------------------------------------
-    # Step 2 — Build binary
-    # Runs after `test` completes (sequential default).
-    # ---------------------------------------------------------------
-    - name: build
-      uses: go/build
-      with:
-        output: bin/app
-        ldflags: "-w -s -X main.version={{commit}}"
-        main: "./cmd/server"
 
     # ---------------------------------------------------------------
     # Step 3A — Build and push Docker image using a Kubernetes Secret.
