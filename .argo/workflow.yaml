@@ -113,7 +113,7 @@ spec:
           - "--context=dir:///workspace/src"
           - "--dockerfile=/workspace/src/Dockerfile"
           - "--no-push"
-          - "--tar-path=/work/image.tar"
+          - "--tar-path=/workspace/image.tar"
           #- "--destination=yourregistry/yourimage:{{inputs.parameters.image_tag}}"
           #- "--cache=true"
           #- "--cache-ttl=24h"
