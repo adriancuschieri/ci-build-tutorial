@@ -115,8 +115,8 @@ spec:
           - "--no-push"
           - "--tar-path=/work/image.tar"
           #- "--destination=yourregistry/yourimage:{{inputs.parameters.image_tag}}"
-          - "--cache=true"
-          - "--cache-ttl=24h"
+          #- "--cache=true"
+          #- "--cache-ttl=24h"
         volumeMounts:
           - name: workspace
             mountPath: /workspace
