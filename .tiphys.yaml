@@ -38,14 +38,14 @@ pipeline:
     # Use this when your registry credentials are stored in a K8s Secret
     # named "docker-registry-credentials" with a .dockerconfigjson key.
     # ---------------------------------------------------------------
-    - name: docker-push
-      uses: docker/build-push
-      with:
-        image: myregistry/myapp
-        tag: "{{commit}}"
-        dockerfile: Dockerfile
-        registry_secret: docker-registry-credentials   # K8s Secret name
-      dependsOn: [test]
+    # - name: docker-push
+      # uses: docker/build-push
+      # with:
+      #   image: myregistry/myapp
+      #   tag: "{{commit}}"
+      #   dockerfile: Dockerfile
+      #   registry_secret: docker-registry-credentials   # K8s Secret name
+      # dependsOn: [test]
 
     # ---------------------------------------------------------------
     # Step 3B — Alternative: env-var based credentials.
